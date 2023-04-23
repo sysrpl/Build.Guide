@@ -68,11 +68,30 @@ git clone --branch 4.5.0 https://github.com/raysan5/raylib.git
 cd raylib
 ````
 
-To create a shared libary file that uses the Linux DRM system, build using th following commands:
+To create a shared libary file that uses the Linux DRM system, build using the following commands:
 
 ````
 mkdir build
 cd build
 cmake .. -DPLATFORM=DRM -DGRAPHICS=TRUE -DBUILD_SHARED_LIBS=ON
 make -j4
+````
+
+## SDL2
+
+SDL2 is a cross platform toolkit designed to abstract all platform specific code you might need to write games. It includes functions for creating windows and rendering contexts, processing input, handling files, threads, audio, and more.
+
+To build SDL2 for Linux DRM (Linux direct rendering manager without a running desktop environment), first install the SDL2 dev package:
+
+````
+sudo apt install libsdl2-dev
+````
+
+Then clone, confidure, and build a SDL2 release:
+
+```
+git clone --branch release-2.26.5 https://github.com/libsdl-org/SDL.git
+cd SDL
+./configure  --enable-video-kmsdrm --disable-video-x11
+make -j 4
 ````
