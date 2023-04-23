@@ -62,7 +62,8 @@ Raylib is a cross platform toolkit designed to simplify creating a window, handl
 To build Raylib for Linux DRM (Linux direct rendering manager without a running desktop environment), first install the follow requirements:
 
 ````
-sudo apt install build-essential cmake libasound2-dev libpulse-dev libvorbis-dev libopenal-dev libdrm-dev libgles2-mesa-dev libudev-dev libgbm-dev
+sudo apt install build-essential cmake libasound2-dev libpulse-dev libvorbis-dev libopenal-dev \
+  libdrm-dev libgles2-mesa-dev libudev-dev libgbm-dev
 git clone --branch 4.5.0 https://github.com/raysan5/raylib.git 
 cd raylib
 ````
