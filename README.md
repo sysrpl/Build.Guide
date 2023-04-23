@@ -4,7 +4,7 @@ This document is a guide to building certain C language projects.
 
 ## NanoVG
 
-NanoVG is a cross platform vector graphics library designed to work against several OpenGL backends, including GLESv2 and GL3. 
+NanoVG is a cross platform 2D vector graphics library designed to work on top of several OpenGL backends, including GLESv2 and GL3. It does not provide any mechanism to create an OpenGL context, create a window, or handle input. It only provides a 2D graphics.
 
 To work with NanoVG first clone its repository:
 
@@ -53,4 +53,25 @@ Build with `gcc` using the following command:
 
 ````
 gcc -shared -o libnanovg.so gles2.c -lGLESv2
+````
+
+## Raylib
+
+Raylib is a cross platform toolkit designed to simplify creating a window, handling user intput, and drawing graphics and 3D models.
+
+To build Raylib for Linux DRM (Linux direct rendering manager without a running desktop environment), first install the follow requirements:
+
+````
+sudo apt install build-essential cmake libasound2-dev libpulse-dev libvorbis-dev libopenal-dev libdrm-dev libgles2-mesa-dev libudev-dev libgbm-dev
+git clone --branch 4.5.0 https://github.com/raysan5/raylib.git 
+cd raylib
+````
+
+To create a shared libary file that uses the Linux DRM system, build using th following commands:
+
+````
+mkdir build
+cd build
+cmake .. -DPLATFORM=DRM -DGRAPHICS=TRUE -DBUILD_SHARED_LIBS=ON
+make -j4
 ````
