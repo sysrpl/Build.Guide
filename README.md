@@ -87,11 +87,11 @@ To build SDL2 for Linux DRM (Linux direct rendering manager without a running de
 sudo apt install libsdl2-dev
 ````
 
-Then clone, confidure, and build a SDL2 release:
+Then clone, configure, and build a SDL2 release:
 
 ```
 git clone --branch release-2.26.5 https://github.com/libsdl-org/SDL.git
 cd SDL
 ./configure  --enable-video-kmsdrm --disable-video-x11
-make -j 4
+make -j4
 ````
